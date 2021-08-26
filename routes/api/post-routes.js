@@ -65,14 +65,14 @@ router.post('/', (req, res) => {
         });
 });
 
-// adding a vote to a post
+// adding a vote to a post, PUT api/votes/upvote
 router.put('/upvote', (req, res) => {
     Vote.create({
-        user_id: req.body.id,
-        post_id: req.body.post
-    })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => res.json(err));
+        user_id: req.body.user_id,
+        post_id: req.body.post_id
+      })
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => res.json(err));
 });
 
 // update a post
